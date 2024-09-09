@@ -1,0 +1,34 @@
+﻿@model Contract_Monthly_Claim.Models.Claim
+
+<h2>Submit a New Claim</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="LecturerName">Lecturer Name</label>
+        <input type="text" id="LecturerName" name="LecturerName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="ModuleName">Module Name</label>
+        <input type="text" id="ModuleName" name="ModuleName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="ClaimAmount">Claim Amount</label>
+        <input type="number" id="ClaimAmount" name="ClaimAmount" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="DateOfClaim">Date of Claim</label>
+        <input type="date" id="DateOfClaim" name="DateOfClaim" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="SupportingDocuments">Supporting Documents</label>
+        <input type="file" id="SupportingDocuments" name="supportingDocuments" class="form-control" multiple />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+</form>

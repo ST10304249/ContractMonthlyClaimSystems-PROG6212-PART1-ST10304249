@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Contract_Monthly_Claim.Models.Claim>
+
+<h2>Claims Awaiting Review</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ClaimId</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimAmount</td>
+                <td>@claim.Status</td>
+                <td>
+                    <a href="@Url.Action("ReviewClaim", new { id = claim.ClaimId })">Review</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

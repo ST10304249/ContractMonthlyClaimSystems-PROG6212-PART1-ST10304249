@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Contract_Monthly_Claim.Models.Claim>
+
+@{
+    ViewBag.Title = "Claims Awaiting Approval";
+}
+
+<h2>Claims Awaiting Approval</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Module Name</th>
+            <th>Claim Amount</th>
+            <th>Date of Claim</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.LecturerName</td>
+                <td>@claim.ModuleName</td>
+                <td>@claim.ClaimAmount.ToString("C")</td>
+                <td>@claim.DateOfClaim.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("ApproveClaim", "AcademicManager", new { id = claim.ClaimId })" class="btn btn-success">Approve</a>
+                    <a href="@Url.Action("DenyClaim", "AcademicManager", new { id = claim.ClaimId })" class="btn btn-danger">Deny</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Go to Home</a>

@@ -1,0 +1,29 @@
+﻿@model Contract_Monthly_Claim.Models.Claim
+
+@{
+    ViewBag.Title = "Edit Claim";
+}
+
+<h2>Edit Claim</h2>
+
+<form asp-action="EditClaim" method="post">
+    <input type="hidden" name="ClaimId" value="@Model.ClaimId" />
+    <div class="form-group">
+        <label for="LecturerName">Lecturer Name</label>
+        <input type="text" id="LecturerName" name="LecturerName" class="form-control" value="@Model.LecturerName" required />
+    </div>
+    <div class="form-group">
+        <label for="ModuleName">Module Name</label>
+        <input type="text" id="ModuleName" name="ModuleName" class="form-control" value="@Model.ModuleName" required />
+    </div>
+    <div class="form-group">
+        <label for="ClaimAmount">Claim Amount</label>
+        <input type="number" id="ClaimAmount" name="ClaimAmount" class="form-control" value="@Model.ClaimAmount" required />
+    </div>
+    <div class="form-group">
+        <label for="DateOfClaim">Date of Claim</label>
+        <input type="date" id="DateOfClaim" name="DateOfClaim" class="form-control" value="@Model.DateOfClaim.ToString("yyyy-MM-dd")" required />
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update Claim</button>
+</form>

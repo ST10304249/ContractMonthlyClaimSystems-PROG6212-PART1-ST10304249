@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Contract Monthly Claim System (CMCS)</h1>
+    <p class="lead">This system streamlines the process of submitting, verifying, and approving monthly claims for Independent Contractor lecturers.</p>
+    <hr class="my-4">
+    <p>Access your dashboard and manage your claims efficiently using the options below.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Lecturer Dashboard</h3>
+        <p>Submit your monthly claims, track their status, and upload supporting documents.</p>
+        <a class="btn btn-primary" href="/Lecturer/SubmitClaim">Go to Lecturer Dashboard »</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Programme Coordinator Dashboard</h3>
+        <p>Verify and manage claims submitted by lecturers before they are forwarded to the Academic Manager.</p>
+        <a class="btn btn-primary" href="/ProgrammeCoordinator/Dashboard">Go to Programme Coordinator Dashboard »</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Academic Manager Dashboard</h3>
+        <p>Approve or reject claims that have been verified by the Programme Coordinator.</p>
+        <a class="btn btn-primary" href="/AcademicManager/Dashboard">Go to Academic Manager Dashboard »</a>
+    </div>
+</div>
+
+<div class="mt-5">
+    <h4>Announcements</h4>
+    <ul class="list-group">
+        <li class="list-group-item">New feature: Bulk claim submission now available!</li>
+        <li class="list-group-item">System maintenance scheduled for next weekend.</li>
+        <li class="list-group-item">Reminder: End of month claim submission deadline is approaching.</li>
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+﻿@model Contract_Monthly_Claim.Models.Claim
+
+@{
+    ViewBag.Title = "Review Claim";
+}
+
+<h2>Review Claim</h2>
+
+<div>
+    <p><strong>Lecturer Name:</strong> @Model.LecturerName</p>
+    <p><strong>Module Name:</strong> @Model.ModuleName</p>
+    <p><strong>Claim Amount:</strong> @Model.ClaimAmount.ToString("C")</p>
+    <p><strong>Date of Claim:</strong> @Model.DateOfClaim.ToShortDateString()</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Description:</strong> @Model.Description</p>
+
+    @if (Model.SupportingDocuments != null && Model.SupportingDocuments.Any())
+    {
+        <h3>Supporting Documents</h3>
+        <ul>
+            @foreach (var doc in Model.SupportingDocuments)
+            {
+                <li>@doc.DocumentName</li>
+            }
+        </ul>
+    }
+</div>
+
+<form asp-action="ApproveClaim" method="post">
+    <input type="hidden" name="id" value="@Model.ClaimId" />
+    <button type="submit" class="btn btn-success">Approve</button>
+</form>
+
+<form asp-action="RejectClaim" method="post">
+    <input type="hidden" name="id" value="@Model.ClaimId" />
+    <div class="form-group">
+        <label for="reason">Rejection Reason</label>
+        <textarea id="reason" name="reason" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Reject</button>
+</form>
+
+<a href="@Url.Action("Dashboard", "ProgrammeCoordinator")" class="btn btn-secondary">Back to Dashboard</a>
